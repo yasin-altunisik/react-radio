@@ -1,0 +1,16 @@
+.station {
+    width: 250px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+
+.player {
+    display: flex;
+    border-radius: 10px;
+    width: 200px;
+    margin: 10px auto 10px auto;
+}
+.stationContainer {
+    display: flex;
+    flex-wrap: nowrap;
+}
