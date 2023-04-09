@@ -18,27 +18,25 @@ function Stations() {
   };
   return (
     <div className="stationContainer">
-      {stations &&
-        stations.map((station) => (
-          <div className="radio" key={station.stationuuid}>
-            <div className="stations">
-              <div className="station">
-                <p>{station.name}</p>
-                {
-                  <AudioPlayer
-                    className="player"
-                    src={station.url_resolved}
-                    showJumpControls={false}
-                    layout="stacked"
-                    customProgressBarSection={[]}
-                    customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
-                    autoPlayAfterSrcChange={false}
-                  />
-                }
-              </div>
+      <center>
+        {stations &&
+          stations.map((station) => (
+            <div className="station" key={station.stationuuid}>
+              <p>{station.name}</p>
+              {
+                <AudioPlayer
+                  className="player"
+                  src={station.url_resolved}
+                  showJumpControls={false}
+                  layout="stacked"
+                  customProgressBarSection={[]}
+                  customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
+                  autoPlayAfterSrcChange={false}
+                />
+              }
             </div>
-          </div>
-        ))}
+          ))}
+      </center>
     </div>
   );
 }

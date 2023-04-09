@@ -2,6 +2,25 @@ body {
     background-color: bisque;
 }
 
-.App {
+.headers {
     text-align: center;
+}
+
+.App {
+    justify-content: center;
+    align-items: center;
+}
+
+.sticky {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    padding: 20px;
+    background-color: aqua;
+  }
+
+.sticky .player {
+    border-radius: 10px;
+    width: 800px;
+    margin: 10px auto 10px auto;
 }

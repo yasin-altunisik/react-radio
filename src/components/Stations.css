@@ -1,16 +1,22 @@
-.station {
-    width: 250px;
-    background-color: cornflowerblue;
-    border-radius: 10px;
+.stationContainer {
+width: 80%;
+height: fit-content;
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
 }
 
-.player {
-    display: flex;
+.station {
+    width: 250px;
+    background-color: indianred;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.station .player {
     border-radius: 10px;
     width: 200px;
     margin: 10px auto 10px auto;
-}
-.stationContainer {
-    display: flex;
-    flex-wrap: nowrap;
 }
