@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import "./Stations.css";
+import icon from "../radio.jpg";
 
 function Stations() {
   const [stations, setStations] = useState([]);
@@ -16,6 +16,17 @@ function Stations() {
     ).then((response) => response.json());
     setStations(response);
   };
+
+  function checkImg(url) {
+    const img = document.getElementsByClassName("stationIcon");
+    img.addEventListener("error", function handleError() {
+      console.log(img.src);
+      img.src = icon;
+      // 👇️ if set to non-existent image, causes infinite loop
+      // img.src = 'backup.webp'; // 👈️ must be a valid image
+    });
+  }
+
   return (
     <div className="stationContainer">
       <center>
@@ -23,17 +34,13 @@ function Stations() {
           stations.map((station) => (
             <div className="station" key={station.stationuuid}>
               <p>{station.name}</p>
-              {
-                <AudioPlayer
-                  className="player"
-                  src={station.url_resolved}
-                  showJumpControls={false}
-                  layout="stacked"
-                  customProgressBarSection={[]}
-                  customControlsSection={["MAIN_CONTROLS", "VOLUME_CONTROLS"]}
-                  autoPlayAfterSrcChange={false}
+              <picture>
+                <img
+                  src={station.favicon ? checkImg(station.favicon) : icon}
+                  alt="StationIcons"
+                  className="stationIcon"
                 />
-              }
+              </picture>
             </div>
           ))}
       </center>
